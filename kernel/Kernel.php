@@ -14,7 +14,7 @@ ini_set('memory_limit', '1G');
 date_default_timezone_set("Asia/Shanghai");
 
 //抑制错误
-//error_reporting(0);
+error_reporting(0);
 
 //const
 define("BASE_PATH", substr(rtrim(__DIR__, "/"), 0, -7) . "/");

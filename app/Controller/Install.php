@@ -178,14 +178,16 @@ class Install
      * @throws JSONException
      * @throws \ReflectionException
      */
-    #[Validator([
-        [Finish::class, ['loginNickname', 'loginEmail', 'loginPassword', 'loginRePassword']]
-    ])]
     public function finish(): Response
     {
         if (App::$install) {
-            throw new JSONException("请勿重复安装");
+            return $this->response->json(200, '安装完成');
         }
+
+        new Validator([
+            [Finish::class, ['loginNickname', 'loginEmail', 'loginPassword', 'loginRePassword']]
+        ]);
+
         $port = $this->request->post("cli_port", Filter::INTEGER);
         $host = $this->request->post("db_host");
         $db = $this->request->post("db_name");
@@ -224,7 +226,9 @@ class Install
         }
 
         unlink($file . ".tmp");
-        file_put_contents(BASE_PATH . '/kernel/Install/Lock', md5((string)time()));
+        if (file_put_contents(BASE_PATH . '/kernel/Install/Lock', md5((string)time())) === false) {
+            throw new JSONException("没有写入安装锁权限，请检查权限是否足够");
+        }
 
         if (App::$cli) {
             //安装服务
