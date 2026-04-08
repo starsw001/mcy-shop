@@ -152,6 +152,7 @@ const util = new class Util {
                 }
             },
             error: (xhr, status, error) => {
+                loader.autoClose && layer.close(loaderIndex);
                 typeof fail === 'function' && fail(xhr, status, error);
             }
         });
