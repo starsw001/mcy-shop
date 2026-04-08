@@ -1,0 +1,9 @@
+<script>
+    setVar("imageCodeType", "{{ type }}");
+</script>
+
+{{ js("/app/Plugin/ImageCode/Assets/Code.js")|raw }}
+
+{% if email == 1 %}
+    {{ js("/app/Plugin/ImageCode/Assets/SendEmail.js")|raw }}
+{% endif %}

@@ -49,8 +49,21 @@
 - **分站独立插件/模板**：分站即主站，商家开通分站后，几乎拥有与主站相同的功能，可自主安装插件和模板，包括自定义支付接口，无需依赖主站的支付接口。
 - **多样化的发货方式**：通过安装不同的发货插件，如虚拟卡密、游戏账号、实体商品实时物流、游戏充值业务、账号充值业务等，满足各种业务需求。
 
-## 更多
+## 
 
-- QQ群：317898299 - 广告：🈲
-- [Telegram](http://t.me/mcyofficial) - 广告：🈲
-- [Discord](https://discord.gg/MAduAfBvCK) - 广告：🉑
+## Local PHPStudy Notes
+
+This section is for local development with PHPStudy, Nginx and php-cgi.
+
+- Current local mode:
+  - `www.mcyshop.cc` is running through Nginx FastCGI, not the system default CLI PHP.
+  - For this project, use the PHP version selected in PHPStudy for verification and debugging.
+- Plugin availability in local PHPStudy mode:
+  - Fully usable in current mode: `ImageCode`, `TopCat`, `SafeEntrance`, `HandShip`, `VirtualCardShip`, `MCYShopV3`, `Alipay`, `Aspay`, `Epay`
+  - Partially usable in current mode: `MCYShopV4`
+  - Not suitable in pure PHPStudy FPM mode: `Watch`
+- Notes:
+  - `ImageCode` has been verified on `/register`.
+  - `TopCat` has been verified on `/` and currently depends on `HOOK_SCOPE_GLOBAL`.
+  - `MCYShopV4` route and handle chain work in FPM mode, but its background `Process` sync only runs in CLI service mode.
+  - Payment and external ship plugins are framework-compatible with FPM, but full callback closure still depends on whether upstream callbacks can reach the local site.

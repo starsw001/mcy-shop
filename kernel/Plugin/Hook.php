@@ -140,9 +140,10 @@ class Hook
                             $arguments = $attribute->getArguments();
                             $point = $arguments['point'];
                             $weight = $arguments['weight'] ?? 100;
+                            $scope = $plugin->info[PGN::HOOK_SCOPE] ?? PGN::HOOK_SCOPE_USR;
                             $hookInfo = new HookInfo($name, $className, $method, $plugin, $env, $point, $weight);
                             if (!$this->exist($point, $hookInfo)) {
-                                if ($plugin->info[PGN::HOOK_SCOPE] == PGN::HOOK_SCOPE_GLOBAL) {
+                                if ($scope == PGN::HOOK_SCOPE_GLOBAL) {
                                     $hooks["GLOBAL"][$point][] = $hookInfo;
                                 } else {
                                     $hooks[$env][$point][] = $hookInfo;

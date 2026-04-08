@@ -1,0 +1,89 @@
+{{ include ("Common/Header.html") }}
+
+
+<div class="content">
+    <div class="row mb-2">
+
+        <div class="col-md-6 col-xl-2 sense-boundary">
+            <a class="block block-shadow block-rounded block-link-shadow text-end" href="javascript:void(0)">
+                <div class="block-content block-content-full d-flex justify-content-between align-items-center">
+                    <div>
+                        {{ icon("icon-xiaoxiong","icon-42px")|raw }}
+                    </div>
+                    <div class="text-end">
+                        <div class="fs-sm text-uppercase text-muted mb-1">{{ i18n("全部")|raw }}</div>
+                        <div class="fs-3 fw-semibold text-center card_count">{{ icon("icon-loading" , "icon-spin")|raw }}</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-6 col-xl-2 sense-boundary">
+            <a class="block block-shadow block-rounded block-link-shadow text-end" href="javascript:void(0)">
+                <div class="block-content block-content-full d-flex justify-content-between align-items-center">
+                    <div>
+                        {{ icon("icon-anquan3","icon-40px")|raw }}
+                    </div>
+                    <div class="text-end">
+                        <div class="fs-sm text-uppercase text-muted mb-1">{{ i18n("在售")|raw }}</div>
+                        <div class="fs-3 fw-semibold text-center card_usable_count">{{ icon("icon-loading" , "icon-spin")|raw }}</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-6 col-xl-2 sense-boundary">
+            <a class="block block-shadow block-rounded block-link-shadow text-end" href="javascript:void(0)">
+                <div class="block-content block-content-full d-flex justify-content-between align-items-center">
+                    <div>
+                        {{ icon("icon-anquan2","icon-42px")|raw }}
+                    </div>
+                    <div class="text-end">
+                        <div class="fs-sm text-uppercase text-muted mb-1">{{ i18n("已售")|raw }}</div>
+                        <div class="fs-3 fw-semibold text-center card_used_count">{{ icon("icon-loading" , "icon-spin")|raw }}</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-6 col-xl-2 sense-boundary">
+            <a class="block block-shadow block-rounded block-link-shadow text-end" href="javascript:void(0)">
+                <div class="block-content block-content-full d-flex justify-content-between align-items-center">
+                    <div>
+                        {{ icon("icon-anquan1","icon-42px")|raw }}
+                    </div>
+                    <div class="text-end">
+                        <div class="fs-sm text-uppercase text-muted mb-1">{{ i18n("冻结")|raw }}</div>
+                        <div class="fs-3 fw-semibold text-center card_frozen_count">{{ icon("icon-loading" , "icon-spin")|raw }}</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="block block-rounded">
+        <div class="block-header">
+            <button type="button" class="btn btn-outline-success btn-sm upload-card">{{ icon("icon-tianjia")|raw }} 上传卡密
+            </button>
+            <button type="button" class="btn btn-outline-warning btn-sm frozen-card">{{ icon("icon-dongjie")|raw }} 冻结卡密
+            </button>
+            <button type="button" class="btn btn-outline-warning btn-sm unfreeze-card">{{ icon("icon-jiedong")|raw }}
+                解冻卡密
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-sm del-card">{{ icon("icon-shanchu")|raw }}
+                删除卡密(完全删除)
+            </button>
+            <button type="button" class="btn btn-outline-primary btn-sm export-card">{{ icon("icon-wenjiandaochu")|raw }}
+                导出卡密
+            </button>
+        </div>
+
+        <div class="block-content pt-0">
+            <table id="repertory-virtual-card-table"></table>
+        </div>
+    </div>
+</div>
+
+
+{{ ready("/app/Plugin/VirtualCardShip/Assets/Card.js?p=20241030")|raw }}
+{{ include ("Common/Footer.html") }}

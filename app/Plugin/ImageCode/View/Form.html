@@ -1,0 +1,17 @@
+<div class="row mb-4">
+    <div class="col-sm-6 col-6">
+        <div class="form-floating">
+            <input type="text" class="form-control" id="image-captcha" name="image_code" placeholder="请输入验证码">
+            <label class="form-label" for="image-captcha">图形验证码</label>
+        </div>
+    </div>
+    <div class="col-sm-6 col-6 d-flex align-items-center">
+        <img src="/plugin/image-code/code?key={{ type }}" style="cursor:pointer;height: 48px;" class="image-code" alt="更换验证码">
+    </div>
+</div>
+
+<script>
+    ready(function () {
+        ImageCode.update('.image-code', "{{ type }}");
+    });
+</script>
