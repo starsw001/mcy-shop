@@ -1,0 +1,31 @@
+# IDE/editor local files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+
+# Runtime/cache/session/log output
+runtime/
+*.log
+*.tmp
+*.cache
+
+# Local install/config state
+kernel/Install/Lock
+
+# Local web server helper generated during deployment
+#nginx.htaccess
+
+# Test/coverage artifacts
+.phpunit.result.cache
+coverage/
